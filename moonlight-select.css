@@ -1,0 +1,93 @@
+/* wrapper */
+.mlSelect-wrapper {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  width: 100%;
+}
+.mlSelect-wrapper .mlSelect-box {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  /*border-radius: 4px;*/
+  height: 32px;
+  width: 100%;
+}
+.mlSelect-wrapper .mlSelect-box .mlSelect-selected {
+  /*background-color: #909;*/
+  color: #333;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  padding-right: 20px;
+  overflow: hidden;
+  width: 100%;
+}
+.mlSelect-wrapper .mlSelect-box .mlSelect-arrow {
+  height: 30px;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 20px;
+}
+.mlSelect-wrapper .mlSelect-box .mlSelect-arrow i {
+  border-color: #888 transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px 4px 0 4px;
+  height: 0;
+  left: 50%;
+  margin-left: -4px;
+  margin-top: -2px;
+  position: absolute;
+  top: 50%;
+  width: 0;
+}
+.mlSelect-wrapper select {
+  display: none;
+}
+.mlSelect-wrapper .mlSelect-dropdown {
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #aaa;
+  /*border-radius: 4px;*/
+  display: none;
+  font-size: 14px;
+  left: 0;
+  list-style: none;
+  margin: 2px 0 0;
+  min-width: 180px;
+  padding: 0;
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  width: 100%;
+  z-index: 1000;
+}
+.mlSelect-wrapper .mlSelect-dropdown .mlSelect-option {
+  cursor: pointer;
+  line-height: 18px;
+  padding: 3px;
+}
+.mlSelect-wrapper .mlSelect-dropdown .mlSelect-option.mlSelected {
+  background-color: #f00;
+}
+.mlSelect-wrapper .mlSelect-dropdown .mlSelect-optgroup {
+  color: #aaa;
+  cursor: default;
+  border-bottom: 1px solid #aaa;
+}
+.mlSelect-wrapper .mlSelect-dropdown .mlSelect-option .mlSelect-option-text {
+  display: inline-block;
+}
+.mlSelect-wrapper .mlSelect-dropdown .mlSelect-option .mlSelect-option-check {
+  background: #aaa;
+  /*border-radius: 3px;*/
+  display: inline-block;
+  height: 14px;
+  margin-right: 3px;
+  width: 14px;
+}
+.mlSelect-wrapper .mlSelect-dropdown .mlSelect-option.mlSelected .mlSelect-option-check,
+.mlSelect-wrapper .mlSelect-dropdown .mlSelect-option:hover .mlSelect-option-check {
+  background: #000;
+}
