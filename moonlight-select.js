@@ -1,7 +1,7 @@
 /*
  *
  * moonlight-select.js
- * version 0.0.1
+ * version 0.0.2
  *
  * Plugin for creating a responsive alternative to select boxes, mostly for mobile
  * but looks good and works great on any device/browser/screensize
@@ -28,20 +28,12 @@
 			debug:	false
 		}, options);
 
-    console.log(settings);
-
     // parse through moonlights
     $.each($moonlights, function(i, ml){
       $select = $(ml);
       // is multiple
       var isMulti = $select.attr('multiple');
       isMulti = (typeof isMulti !== typeof undefined && isMulti !== false) ? true : false;
-
-      if(isMulti) {
-        console.log('is multi');
-      } else {
-        console.log('is NOT multi');
-      }
 
       // wrap it
       $select.wrap('<div class="mlSelect-wrapper"></div>');
@@ -77,21 +69,27 @@
 			}
 
       // functions
-
       $moonlight.on('click', function(e){
 				$mlClick   = $(e.target);
 				$mlClickDd = $(this).find('.mlSelect-dropdown');
+
 				// if this is hidden, hide others, show this dropdown
 				if($mlClickDd.is(':hidden')) {
 					// hide all the others
 					$('.mlSelect-dropdown').hide();
 					// show current one
 					$mlClickDd.fadeIn(200);
+					// remove active
+					$('.mlSelect-wrapper').removeClass('mlActive');
+					// add active
+					$(this).addClass('mlActive');
 				} else {
 					// else, if it's not within the dropdown, hide all.
 					if ($mlClick.closest('.mlSelect-box').length) {
 						// hide all the others
 						$('.mlSelect-dropdown').hide();
+						// remove active
+						$('.mlSelect-wrapper').removeClass('mlActive');
 					}
 				}
 
@@ -199,11 +197,13 @@
 			$(document).on('click', function(e){
 				// close dropdown if click is not within the .mlSelect-wrapper
 				if (!$(e.target).closest('.mlSelect-wrapper').length) {
-						// hid all the others
+						// hide all the others
 			      $('.mlSelect-dropdown').hide();
+						// remove active
+						$('.mlSelect-wrapper').removeClass('mlActive');
 			  }
 			});
-
+			
       // my memories of you, now that i am clean, the matador is no more and is dragged from you
 
     });
