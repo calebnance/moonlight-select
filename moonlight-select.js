@@ -61,8 +61,19 @@
 							$dropdown.append('<div class="mlSelect-option mlSelect-optgroup">' + optgroupLabel + '</div>');
 						}
 					}
+					// add selected
+					var addSelected = $(option).attr('selected') ? ' mlSelected' : '';
 					// add option
-					$dropdown.append('<div class="mlSelect-option" data-value="' + option.value + '"><span class="mlSelect-option-check"/><span class="mlSelect-option-text">' + option.text + '</span></div>');
+					$dropdown.append('<div class="mlSelect-option' + addSelected + '" data-value="' + option.value + '"><span class="mlSelect-option-check"/><span class="mlSelect-option-text">' + option.text + '</span></div>');
+					// add text
+					if(isMulti) {
+
+					} else {
+						// if set
+						if(addSelected) {
+							$moonlight.find('.mlSelect-selected').html(option.text);
+						}
+					}
 				});
 			} else {
 				console.log('where do we go from here?');
@@ -203,7 +214,7 @@
 						$('.mlSelect-wrapper').removeClass('mlActive');
 			  }
 			});
-			
+
       // my memories of you, now that i am clean, the matador is no more and is dragged from you
 
     });
